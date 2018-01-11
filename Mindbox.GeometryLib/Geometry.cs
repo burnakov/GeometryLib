@@ -17,6 +17,8 @@ namespace Mindbox.GeometryLib
         /// <exception cref="ArgumentException">Throws if traingle is not right-angeled.</exception>
         public static double RightTriangleArea(double sideA, double sideB, double sideC)
         {
+            if (ArgumentValidation.IsInfinite(sideA, sideB, sideC))
+                throw new ArgumentOutOfRangeException("Function arguments values can not be Infinite.");
             if (ArgumentValidation.IsNan(sideA, sideB, sideC))
                 throw new ArgumentOutOfRangeException("Function arguments can not be NaN.");
             if (!ArgumentValidation.IsGreaterThenZero(sideA, sideB, sideC))
